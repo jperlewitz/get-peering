@@ -1,0 +1,78 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Peering Info for AS {{bgp_asn}}</h1>
+</div>
+
+<html>
+<head>
+    <title>Peering Info</title>
+    <style>
+        table.formdata {
+            border: 1px solid #5F6F7E;
+            border-collapse: collapse;
+            margin: 1em 0 2em 0;
+        }
+
+            table.formdata th {
+                border: 1px solid #5F6F7E;
+                background-color: black;
+                color: white;
+                text-align: left;
+                font-weight: normal;
+                padding: 0.2em 0.4em 0.2em 0.4em;
+                margin: 0;
+            }
+
+            table.formdata td {
+                white-space: pre-wrap;
+                margin: 0;
+                padding: 0;
+                border: 1px solid #E2E2E2;
+                font-size: 16px;
+            }
+
+            table.formdata input {
+                width: 10px;
+                padding: 0.2em 0.4em 0.2em 0.4em;
+                margin: 0;
+                border-width: 0;
+                border-style: none;
+            }
+
+        .highlightme {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <table class="formdata" summary="Company Info form" width="50%">
+            <tr>
+                <td>Company Name</td>
+                <td>{{company_name}}</td>
+            </tr>
+            <tr>
+                <td>Company Website</td>
+                <td>{{company_website}}</td>
+            </tr>
+            <tr>
+                <td>BGP AS #</td>
+                <td>{{bgp_asn}}</td>
+            </tr>
+            <tr>
+                <td>Peering Prefixes</td>
+                <td><a href="/peering-info" name="peerinf-info">{{prefix_num}}</a></td>
+            </tr>
+            <tr>
+                <td>Total Bandwidth</td>
+                <td>{{total_bandwidth}}</td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
+{% endblock %}

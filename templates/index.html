@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Get Peering Information</h1>
+</div>
+
+<form action="{{action}}" method="POST">
+    <p><b><u>Please enter ASN # to get peering information</b></u></p>
+    <p>
+        BGP ASN #: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" style="width:145px;height:18px" name="asn_num" autocomplete="off" />
+    </p>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="submit" value="Submit" style="height:25px;width:85px" />
+    </p>
+    {% if error_type == "null" %}
+        <p style="color:red;font-size:30px;">Error: Please enter a value for BGP ASN #</p>
+    {% elif error_type == "bad_asn" %}
+        <p style="color:red;font-size:30px;">Error: Please enter a valid BGP ASN #</p>
+    {% endif %}
+</form>
+
+    {% endblock %}
